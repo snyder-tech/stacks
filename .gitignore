@@ -6,3 +6,7 @@ coverage
 tmp
 *.tsbuildinfo
 .dagger/sdk
+apps/docs-site/generated-content
+apps/docs-site/.vitepress/cache
+apps/docs-site/.vitepress/dist
+packages/docs-support

@@ -26,8 +26,28 @@ Built on the kind tools from [Benevolent DX](https://github.com/snyder-tech/bene
 
 ## Relationship To BDX
 
-- `BDX` ships the tools and reusable package layer
+- `BDX` ships the tools and reusable package layer, including the docs
+  libraries that STX consumes
 - `STX` ships complete, integrated solutions built on top of that layer
+- `apps/docs-site` is a thin Analog consumer of the BDX docs libraries
+
+## Branch Installs
+
+The docs site is developed against the BDX docs-overhaul branch:
+
+```sh
+cd /Volumes/SnyderDev/snyder/benevolent-dx
+git checkout feat/docs-overhaul
+pnpm install
+
+cd /Volumes/SnyderDev/snyder/stacks
+pnpm install
+pnpm docs:dev
+```
+
+When you want a branch artifact instead of a live sibling checkout, use
+`pnpm run release:pack` in BDX and install the resulting tarball in the
+consumer.
 
 This keeps the open-source family clean:
 

@@ -1,0 +1,154 @@
+language: en-US
+tone_instructions: >-
+  Prioritize regressions, API compatibility, test gaps, release impact and monorepo consistency.
+  Flag breaking changes per CONTRIBUTING.md. Focus on behavioral risk and skip style-only nits.
+
+reviews:
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: false
+  high_level_summary_in_walkthrough: false
+  review_status: true
+  review_details: false
+  commit_status: true
+  fail_commit_status: false
+  collapse_walkthrough: true
+  changed_files_summary: false
+  sequence_diagrams: false
+  estimate_code_review_effort: true
+  assess_linked_issues: true
+  related_issues: false
+  related_prs: false
+  suggested_labels: false
+  auto_apply_labels: false
+  suggested_reviewers: false
+  auto_assign_reviewers: false
+  in_progress_fortune: false
+  poem: false
+  enable_prompt_for_ai_agents: true
+  abort_on_close: true
+  path_filters:
+    - "packages/**"
+    - "apps/**"
+    - "stacks/**"
+    - "docs/**"
+    - ".github/workflows/**"
+    - ".githooks/**"
+    - ".github/pr-scope-map.json"
+    - ".github/PULL_REQUEST_TEMPLATE.md"
+    - "CONTRIBUTING.md"
+    - "README.md"
+    - "package.json"
+    - "pnpm-workspace.yaml"
+    - "tsconfig.base.json"
+    - "release.config.ts"
+    - "dagger.json"
+    - ".node-version"
+    - "!**/dist/**"
+    - "!**/coverage/**"
+    - "!**/node_modules/**"
+  path_instructions:
+    - path: "packages/knowledge-base/**"
+      instructions: >-
+        Review as the knowledge-base scope. Prioritize API stability, sensible defaults,
+        stack-definition correctness, and whether tests prove the intended behavior.
+    - path: "docs/**"
+      instructions: >-
+        Review as docs scope. Bias feedback toward documentation accuracy, command correctness,
+        and broken links/examples rather than style-only nits.
+    - path: "stacks/**"
+      instructions: >-
+        Review as repo/stack scope. Focus on whether higher-level stack artifacts are coherent,
+        maintainable, and aligned with the repo's intended package boundaries.
+    - path: ".github/workflows/**"
+      instructions: >-
+        Review as ci scope. Focus on workflow safety, branch behavior, cache correctness,
+        and whether CI coverage still matches repository expectations.
+    - path: ".github/PULL_REQUEST_TEMPLATE.md"
+      instructions: >-
+        Review as repo scope. Keep PR guidance aligned with CONTRIBUTING.md and the preferred squash-merge workflow.
+    - path: ".github/pr-scope-map.json"
+      instructions: >-
+        Review as repo scope. Keep scope mappings aligned with the actual published packages and repo areas.
+    - path: "CONTRIBUTING.md"
+      instructions: >-
+        Review as repo/docs guidance. Keep contributor instructions aligned with current branch, PR, and testing expectations.
+    - path: "package.json"
+      instructions: >-
+        Review as repo scope. Focus on workspace-wide tooling impact, scripts, dependency changes,
+        and release or CI implications.
+    - path: "pnpm-workspace.yaml"
+      instructions: >-
+        Review as repo scope. Focus on workspace layout and catalog changes.
+    - path: "tsconfig.base.json"
+      instructions: >-
+        Review as repo scope. Focus on path alias correctness and downstream workspace impact.
+    - path: "release.config.ts"
+      instructions: >-
+        Review as repo scope. Prioritize release automation correctness, channel behavior, and semantic-release impact.
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    auto_pause_after_reviewed_commits: 3
+    drafts: false
+    ignore_title_keywords:
+      - "WIP"
+      - "DO NOT REVIEW"
+      - "RFC"
+    base_branches:
+      - "^main$"
+      - "^beta$"
+      - "^alpha$"
+  finishing_touches:
+    docstrings:
+      enabled: false
+    unit_tests:
+      enabled: false
+    simplify:
+      enabled: false
+  pre_merge_checks:
+    docstrings:
+      mode: off
+    title:
+      mode: warning
+      requirements: >-
+        Prefer Conventional Commit style PR titles. Use type(scope): summary when a supported scope applies.
+        Supported scopes are knowledge-base, repo, docs, and ci.
+    description:
+      mode: warning
+    issue_assessment:
+      mode: warning
+  tools:
+    github-checks:
+      enabled: true
+      timeout_ms: 180000
+    markdownlint:
+      enabled: true
+    actionlint:
+      enabled: true
+    yamllint:
+      enabled: true
+    shellcheck:
+      enabled: true
+    gitleaks:
+      enabled: true
+
+chat:
+  art: false
+  auto_reply: true
+  allow_non_org_members: true
+
+knowledge_base:
+  web_search:
+    enabled: true
+  code_guidelines:
+    enabled: true
+    filePatterns:
+      - "CONTRIBUTING.md"
+      - ".github/PULL_REQUEST_TEMPLATE.md"
+  learnings:
+    scope: local
+  issues:
+    scope: local
+  pull_requests:
+    scope: local

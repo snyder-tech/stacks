@@ -12,6 +12,9 @@
     "build:release": "pnpm -r --filter './packages/*' run build",
     "build": "pnpm -r --if-present run build",
     "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build",
+    "docs:build": "pnpm --filter @snyder-tech/stx-docs-site run build",
+    "docs:dev": "pnpm --filter @snyder-tech/stx-docs-site run dev",
+    "docs:preview": "pnpm --filter @snyder-tech/stx-docs-site run preview",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "ghci:build-test": "dagger call --progress=plain build-and-test --source .",
@@ -50,6 +53,8 @@
     "ignoredBuiltDependencies": [],
     "onlyBuiltDependencies": [
       "esbuild",
+      "@parcel/watcher",
+      "lmdb",
       "msgpackr-extract"
     ]
   }
