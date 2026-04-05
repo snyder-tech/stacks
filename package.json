@@ -1,0 +1,56 @@
+{
+  "name": "stx",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@11.0.0-beta.6",
+  "engines": {
+    "node": "^24.14.1",
+    "pnpm": "^11.0.0-beta.6"
+  },
+  "scripts": {
+    "build:release": "pnpm -r --filter './packages/*' run build",
+    "build": "pnpm -r --if-present run build",
+    "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "ghci:build-test": "dagger call --progress=plain build-and-test --source .",
+    "ghci:checks": "dagger call --progress=plain ci-checks --source .",
+    "ghci:lint": "dagger call --progress=plain lint --source .",
+    "ghci:prettier": "dagger call --progress=plain prettier --source .",
+    "lint": "oxlint --quiet .",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "git config core.hookspath .githooks || true",
+    "release:pack": "node tools/scripts/release-artifacts.mts pack",
+    "release:smoke": "node tools/scripts/release-artifacts.mts smoke",
+    "release:verify": "node tools/scripts/release-artifacts.mts verify",
+    "test": "pnpm -r --if-present run test",
+    "typecheck": "pnpm -r --if-present run typecheck"
+  },
+  "devDependencies": {
+    "@dagger.io/dagger": "catalog:",
+    "@semantic-release/changelog": "catalog:",
+    "@semantic-release/commit-analyzer": "catalog:",
+    "@semantic-release/exec": "catalog:",
+    "@semantic-release/github": "catalog:",
+    "@semantic-release/git": "catalog:",
+    "@semantic-release/release-notes-generator": "catalog:",
+    "@types/node": "catalog:",
+    "c12": "catalog:",
+    "only-allow": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:",
+    "semantic-release": "catalog:",
+    "semantic-release-replace-plugin": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [],
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "msgpackr-extract"
+    ]
+  }
+}

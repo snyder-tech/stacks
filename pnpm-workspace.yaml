@@ -1,0 +1,25 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "stacks/*"
+allowBuilds:
+  protobufjs: true
+
+catalog:
+  "@dagger.io/dagger": ^0.20.3
+  "@semantic-release/changelog": ^6.0.3
+  "@semantic-release/commit-analyzer": ^13.0.1
+  "@semantic-release/exec": ^7.1.0
+  "@semantic-release/git": ^10.0.1
+  "@semantic-release/github": ^11.0.6
+  "@semantic-release/release-notes-generator": ^14.1.0
+  "@types/node": ^24.5.2
+  c12: ^3.1.0
+  only-allow: ^1.2.2
+  oxlint: ^1.58.0
+  prettier: ^3.8.1
+  semantic-release: ^25.0.3
+  semantic-release-replace-plugin: ^1.2.7
+  tsdown: ^0.21.7
+  typescript: ^5.9.3
+  vitest: ^4.1.2
