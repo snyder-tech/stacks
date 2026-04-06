@@ -1,0 +1,61 @@
+{
+  "name": "stx",
+  "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "packageManager": "pnpm@11.0.0-beta.6",
+  "engines": {
+    "node": "^24.14.1",
+    "pnpm": "^11.0.0-beta.6"
+  },
+  "scripts": {
+    "build:release": "pnpm --dir .. -r --filter './stacks/packages/*' run build",
+    "build": "pnpm --dir .. -r --filter './stacks/apps/*' --filter './stacks/packages/*' --filter './stacks/stacks/*' --if-present run build",
+    "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build",
+    "docs:build": "pnpm --filter @snyder-tech/stx-docs-site run build",
+    "docs:dev": "pnpm --filter @snyder-tech/stx-docs-site run dev",
+    "docs:preview": "pnpm --filter @snyder-tech/stx-docs-site run preview",
+    "format": "pnpm --dir .. prettier --write stacks README.md CONTRIBUTING.md",
+    "format:check": "pnpm --dir .. prettier --check stacks README.md CONTRIBUTING.md",
+    "ghci:build-test": "pnpm --dir .. run ghci:build-test",
+    "ghci:checks": "pnpm --dir .. run ghci:checks",
+    "ghci:lint": "pnpm --dir .. run ghci:lint",
+    "ghci:prettier": "pnpm --dir .. run ghci:prettier",
+    "lint": "oxlint --quiet .",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "git config core.hookspath ../.githooks || true",
+    "release:pack": "pnpm --dir .. run release:pack",
+    "release:smoke": "pnpm --dir .. run release:smoke",
+    "release:verify": "pnpm --dir .. run release:verify",
+    "test": "pnpm --dir .. -r --filter './stacks/apps/*' --filter './stacks/packages/*' --filter './stacks/stacks/*' --if-present run test",
+    "typecheck": "pnpm --dir .. -r --filter './stacks/apps/*' --filter './stacks/packages/*' --filter './stacks/stacks/*' --if-present run typecheck"
+  },
+  "devDependencies": {
+    "@dagger.io/dagger": "catalog:",
+    "@semantic-release/changelog": "catalog:",
+    "@semantic-release/commit-analyzer": "catalog:",
+    "@semantic-release/exec": "catalog:",
+    "@semantic-release/github": "catalog:",
+    "@semantic-release/git": "catalog:",
+    "@semantic-release/release-notes-generator": "catalog:",
+    "@types/node": "catalog:",
+    "c12": "catalog:",
+    "only-allow": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:",
+    "semantic-release": "catalog:",
+    "semantic-release-replace-plugin": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [],
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "@parcel/watcher",
+      "lmdb",
+      "msgpackr-extract"
+    ]
+  }
+}

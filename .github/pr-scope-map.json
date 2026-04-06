@@ -1,0 +1,72 @@
+{
+  "areas": [
+    {
+      "kind": "package",
+      "scope": "knowledge-base",
+      "label": "scope: knowledge-base",
+      "color": "0f766e",
+      "description": "Changes affecting the STX knowledge base package.",
+      "prefixes": ["stacks/packages/knowledge-base/"]
+    },
+    {
+      "kind": "package",
+      "scope": "style-pipeline",
+      "label": "scope: style-pipeline",
+      "color": "14b8a6",
+      "description": "Changes affecting the Benevolent DX style pipeline packages.",
+      "prefixes": [
+        "benevolent-dx/packages/analog-style-pipeline-core/",
+        "benevolent-dx/packages/analog-style-pipeline-vite/",
+        "benevolent-dx/packages/analog-style-pipeline-style-dictionary-provider/",
+        "benevolent-dx/packages/analog-style-pipeline-panda-provider/",
+        "benevolent-dx/packages/analog-style-pipeline-tokiforge-provider/"
+      ]
+    },
+    {
+      "kind": "docs",
+      "scope": "docs",
+      "label": "scope: docs",
+      "color": "fb923c",
+      "description": "Documentation and README changes.",
+      "prefixes": ["benevolent-dx/docs/", "stacks/docs/"],
+      "files": [
+        "README.md",
+        "CONTRIBUTING.md",
+        "benevolent-dx/README.md",
+        "stacks/README.md"
+      ]
+    },
+    {
+      "kind": "repo",
+      "scope": "ci",
+      "label": "scope: ci",
+      "color": "6366f1",
+      "description": "CI, release, and workflow changes.",
+      "prefixes": [".github/workflows/", ".dagger/", "stacks/tools/"],
+      "files": ["dagger.json", "stacks/release.config.ts"]
+    },
+    {
+      "kind": "repo",
+      "scope": "repo",
+      "label": "scope: repo",
+      "color": "0f172a",
+      "description": "Workspace and repository-level changes.",
+      "files": [
+        "package.json",
+        "pnpm-workspace.yaml",
+        "pnpm-lock.yaml",
+        ".coderabbit.yaml",
+        ".github/PULL_REQUEST_TEMPLATE.md",
+        ".github/pr-scope-map.json"
+      ]
+    },
+    {
+      "kind": "repo",
+      "scope": "repo",
+      "label": "scope: stacks",
+      "color": "14b8a6",
+      "description": "Higher-level stack definitions and templates.",
+      "prefixes": ["stacks/stacks/", "stacks/apps/", "benevolent-dx/apps/"]
+    }
+  ]
+}

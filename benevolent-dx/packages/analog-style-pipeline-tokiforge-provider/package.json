@@ -1,0 +1,26 @@
+{
+  "name": "@snyder-tech/bdx-analog-style-pipeline-tokiforge-provider",
+  "version": "0.0.0",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@snyder-tech/bdx-analog-style-pipeline-core": "workspace:*",
+    "valibot": "catalog:"
+  },
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean",
+    "test": "vitest run --passWithNoTests",
+    "lint": "oxlint src --deny warnings",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

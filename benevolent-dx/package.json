@@ -1,0 +1,67 @@
+{
+  "name": "benevolent-dx",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@11.0.0-beta.6",
+  "engines": {
+    "node": "^24.14.1",
+    "pnpm": "^11.0.0-beta.6"
+  },
+  "scripts": {
+    "build:release": "pnpm --dir .. -r --filter './benevolent-dx/packages/*' run build",
+    "build": "pnpm --dir .. -r --filter './benevolent-dx/apps/*' --filter './benevolent-dx/packages/*' --filter './benevolent-dx/examples/*' --if-present run build",
+    "docs-app:build": "pnpm --filter @snyder-tech/bdx-analog-docs-app run build",
+    "docs-app:dev": "pnpm --filter @snyder-tech/bdx-analog-docs-app run dev",
+    "docs:build": "pnpm --filter @snyder-tech/bdx-analog-docs-app run build",
+    "docs:dev": "pnpm --filter @snyder-tech/bdx-analog-docs-app run dev",
+    "ghci:build-test": "pnpm --dir .. run ghci:build-test",
+    "ghci:checks": "pnpm --dir .. run ghci:checks",
+    "ghci:lint": "pnpm --dir .. run ghci:lint",
+    "ghci:prettier": "pnpm --dir .. run ghci:prettier",
+    "lint:check": "oxlint --quiet .",
+    "lint:workspace": "pnpm --dir .. -r --filter './benevolent-dx/apps/*' --filter './benevolent-dx/packages/*' --filter './benevolent-dx/examples/*' --if-present run lint",
+    "lint": "pnpm run lint:check && pnpm run lint:workspace",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "git config core.hookspath ../.githooks || true",
+    "release:pack": "node tools/scripts/release-artifacts.mts pack",
+    "release:smoke": "node tools/scripts/release-artifacts.mts smoke",
+    "release:verify": "node tools/scripts/release-artifacts.mts verify",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "pnpm --dir .. -r --filter './benevolent-dx/apps/*' --filter './benevolent-dx/packages/*' --filter './benevolent-dx/examples/*' --if-present run test",
+    "typecheck": "pnpm --dir .. -r --filter './benevolent-dx/apps/*' --filter './benevolent-dx/packages/*' --filter './benevolent-dx/examples/*' --if-present run typecheck",
+    "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build"
+  },
+  "devDependencies": {
+    "@semantic-release/commit-analyzer": "catalog:",
+    "@semantic-release/changelog": "catalog:",
+    "@semantic-release/exec": "catalog:",
+    "@semantic-release/github": "catalog:",
+    "@semantic-release/git": "catalog:",
+    "@semantic-release/release-notes-generator": "catalog:",
+    "@standard-schema/spec": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "effect": "catalog:",
+    "only-allow": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:",
+    "rolldown": "catalog:",
+    "semantic-release": "catalog:",
+    "semantic-release-replace-plugin": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "valibot": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [],
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "msgpackr-extract"
+    ]
+  }
+}

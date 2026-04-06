@@ -1,0 +1,41 @@
+{
+  "name": "@snyder-tech/bdx-analog-markdown-pipeline",
+  "version": "0.0.0",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "dependencies": {
+    "front-matter": "catalog:",
+    "hast": "catalog:",
+    "mdast": "catalog:",
+    "rehype-stringify": "catalog:",
+    "remark-parse": "catalog:",
+    "remark-rehype": "catalog:",
+    "shiki": "catalog:",
+    "unified": "catalog:",
+    "unist-util-visit": "catalog:"
+  },
+  "peerDependencies": {
+    "vite": "^8.0.0"
+  },
+  "devDependencies": {
+    "@types/hast": "catalog:",
+    "@types/mdast": "catalog:",
+    "vite": "catalog:"
+  },
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean",
+    "test": "vitest run --passWithNoTests",
+    "lint": "oxlint src --deny warnings",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

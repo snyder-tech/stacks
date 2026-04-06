@@ -1,0 +1,31 @@
+{
+  "name": "@snyder-tech/bdx-analog-style-pipeline-vite",
+  "version": "0.0.0",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@snyder-tech/bdx-analog-style-pipeline-core": "workspace:*"
+  },
+  "peerDependencies": {
+    "vite": "^8.0.0"
+  },
+  "devDependencies": {
+    "vite": "catalog:"
+  },
+  "scripts": {
+    "build": "tsdown src/index.ts --format esm --dts --clean",
+    "test": "vitest run --passWithNoTests",
+    "lint": "oxlint src --deny warnings",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "@snyder-tech/bdx-analog-docs-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build:deps": "pnpm --dir ../.. --filter @snyder-tech/bdx-analog-markdown-pipeline run build && pnpm --dir ../.. --filter @snyder-tech/bdx-analog-docs-angular run build",
+    "prebuild": "pnpm run build:deps",
+    "predev": "pnpm run build:deps",
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run --passWithNoTests",
+    "lint": "oxlint src vite.config.ts --deny warnings",
+    "typecheck": "tsc -p tsconfig.app.json --noEmit"
+  },
+  "dependencies": {
+    "@analogjs/content": "catalog:",
+    "@analogjs/platform": "catalog:",
+    "@analogjs/router": "catalog:",
+    "@angular/common": "catalog:",
+    "@angular/core": "catalog:",
+    "@angular/platform-browser": "catalog:",
+    "@angular/platform-server": "catalog:",
+    "@angular/router": "catalog:",
+    "@snyder-tech/bdx-analog-docs-angular": "workspace:*",
+    "nitro": "catalog:",
+    "@tanstack/angular-query-experimental": "catalog:",
+    "ofetch": "catalog:",
+    "rxjs": "catalog:"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "catalog:",
+    "@angular/build": "catalog:",
+    "@angular/compiler": "catalog:",
+    "@angular/compiler-cli": "catalog:",
+    "@tailwindcss/typography": "catalog:",
+    "@tailwindcss/vite": "catalog:",
+    "oxlint": "catalog:",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  }
+}

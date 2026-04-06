@@ -1,0 +1,73 @@
+{
+  "name": "@snyder-tech/oss",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@11.0.0-beta.6",
+  "engines": {
+    "node": "^24.14.1",
+    "pnpm": "^11.0.0-beta.6"
+  },
+  "scripts": {
+    "build": "pnpm -r --if-present run build",
+    "build:release": "pnpm -r --filter './benevolent-dx/packages/*' --filter './stacks/packages/*' run build",
+    "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build",
+    "bdx:docs:build": "pnpm --filter @snyder-tech/bdx-analog-docs-app run build",
+    "bdx:docs:dev": "pnpm --filter @snyder-tech/bdx-analog-docs-app run dev",
+    "stx:docs:build": "pnpm --filter @snyder-tech/stx-docs-site run build",
+    "stx:docs:dev": "pnpm --filter @snyder-tech/stx-docs-site run dev",
+    "stx:docs:preview": "pnpm --filter @snyder-tech/stx-docs-site run preview",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "ghci:build-test": "dagger call --progress=plain build-and-test --source .",
+    "ghci:checks": "dagger call --progress=plain ci-checks --source .",
+    "ghci:lint": "dagger call --progress=plain lint --source .",
+    "ghci:prettier": "dagger call --progress=plain prettier --source .",
+    "lint": "oxlint --quiet .",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "git config core.hookspath .githooks || true",
+    "release:pack": "node stacks/tools/scripts/release-artifacts.mts pack",
+    "release:smoke": "node stacks/tools/scripts/release-artifacts.mts smoke",
+    "release:verify": "node stacks/tools/scripts/release-artifacts.mts verify",
+    "test": "pnpm -r --if-present run test",
+    "typecheck": "pnpm -r --if-present run typecheck"
+  },
+  "devDependencies": {
+    "@dagger.io/dagger": "catalog:",
+    "@semantic-release/changelog": "catalog:",
+    "@semantic-release/commit-analyzer": "catalog:",
+    "@semantic-release/exec": "catalog:",
+    "@semantic-release/github": "catalog:",
+    "@semantic-release/git": "catalog:",
+    "@semantic-release/release-notes-generator": "catalog:",
+    "@standard-schema/spec": "catalog:",
+    "@types/hast": "catalog:",
+    "@types/mdast": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "c12": "catalog:",
+    "effect": "catalog:",
+    "only-allow": "catalog:",
+    "oxlint": "catalog:",
+    "prettier": "catalog:",
+    "rolldown": "catalog:",
+    "semantic-release": "catalog:",
+    "semantic-release-replace-plugin": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "valibot": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [],
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "lmdb",
+      "msgpackr-extract",
+      "protobufjs"
+    ]
+  }
+}

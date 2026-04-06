@@ -1,0 +1,21 @@
+{
+  "name": "@snyder-tech/bdx-analog-example-angular-basic",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo \"Example workspace only\"",
+    "test": "vitest run --passWithNoTests",
+    "lint": "oxlint src --deny warnings",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@snyder-tech/bdx-analog-style-pipeline-panda-provider": "workspace:*",
+    "@snyder-tech/bdx-analog-style-pipeline-style-dictionary-provider": "workspace:*",
+    "@snyder-tech/bdx-analog-style-pipeline-core": "workspace:*",
+    "@snyder-tech/bdx-analog-style-pipeline-vite": "workspace:*",
+    "@snyder-tech/bdx-analog-style-pipeline-tokiforge-provider": "workspace:*"
+  },
+  "devDependencies": {
+    "vite": "catalog:"
+  }
+}

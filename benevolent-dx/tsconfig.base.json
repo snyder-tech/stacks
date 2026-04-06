@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "useDefineForClassFields": true,
+    "lib": ["ES2023"],
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@snyder-tech/bdx-analog-docs-angular": [
+        "packages/analog-docs-angular/src/index.ts"
+      ],
+      "@snyder-tech/bdx-analog-markdown-pipeline": [
+        "packages/analog-markdown-pipeline/src/index.ts"
+      ],
+      "@snyder-tech/bdx-analog-style-pipeline-core": [
+        "packages/analog-style-pipeline-core/src/index.ts"
+      ],
+      "@snyder-tech/bdx-analog-style-pipeline-vite": [
+        "packages/analog-style-pipeline-vite/src/index.ts"
+      ],
+      "@snyder-tech/bdx-analog-style-pipeline-style-dictionary-provider": [
+        "packages/analog-style-pipeline-style-dictionary-provider/src/index.ts"
+      ],
+      "@snyder-tech/bdx-analog-style-pipeline-panda-provider": [
+        "packages/analog-style-pipeline-panda-provider/src/index.ts"
+      ],
+      "@snyder-tech/bdx-analog-style-pipeline-tokiforge-provider": [
+        "packages/analog-style-pipeline-tokiforge-provider/src/index.ts"
+      ]
+    }
+  }
+}

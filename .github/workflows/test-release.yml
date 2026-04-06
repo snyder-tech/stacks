@@ -1,0 +1,31 @@
+name: Release Test
+
+permissions:
+  contents: read
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  pack-and-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - name: Install Corepack
+        run: npm install --global --force corepack@latest
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Setup Node.js cache
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: "pnpm"
+          cache-dependency-path: "**/pnpm-lock.yaml"
+      - name: Install
+        run: pnpm install --frozen-lockfile --prefer-offline
+      - name: Verify and pack release artifacts
+        run: pnpm run release:smoke
